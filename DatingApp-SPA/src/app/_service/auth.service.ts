@@ -6,11 +6,11 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = 'http://localhost:5000/auth';
+  baseUrl = 'http://localhost:5000/auth/';
   constructor(private http: HttpClient) {}
 
   login(model: any) {
-    this.http.post(this.baseUrl + 'login', model).pipe(
+    return this.http.post(this.baseUrl + 'Login', model).pipe(
       map((response: any) => {
         const user = response;
         if (user) {
@@ -18,5 +18,9 @@ export class AuthService {
         }
       })
     );
+  }
+
+  register(model: any) {
+    return this.http.post(this.baseUrl + 'Register', model);
   }
 }

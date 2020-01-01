@@ -8,7 +8,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
+    [AllowAnonymous]
     [ApiController]
     [Route("[controller]")]
     public class ValuesController : ControllerBase
